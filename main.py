@@ -845,7 +845,7 @@ async def txt_handler(bot: Client, m: Message):
                 url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             elif "jw-prod" in url and url.endswith(".pdf"):
-               cmd = f'wget -O "{name}.pdf" "{url}"'
+               cmd = f'wget --header="User-Agent: Mozilla/5.0" --header="Referer: https://web.utkarshapp.com/" -O "{name}.pdf" "{url}"'
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
@@ -1228,7 +1228,7 @@ async def text_handler(bot: Client, m: Message):
                 url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             elif "jw-prod" in url and url.endswith(".pdf"):
-               cmd = f'wget -O "{name}.pdf" "{url}"'
+               cmd = f'wget --header="User-Agent: Mozilla/5.0" --header="Referer: https://web.utkarshapp.com/" -O "{name}.pdf" "{url}"'
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
