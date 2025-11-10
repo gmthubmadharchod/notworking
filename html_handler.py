@@ -32,7 +32,7 @@ def categorize_urls(urls):
             videos.append((name, new_url))
 
         elif "d1d34p8vz63oiq.cloudfront.net/" in url:
-            new_url = f"https://anonymouspwplayer-0e5a3f512dec.herokuapp.com/pw?url={url}&token={your_working_token}"
+            new_url = f"https://anonymouspwplayer-25261acd1521.herokuapp.com/pw?url={url}&token={pw_token}"
             videos.append((name, new_url))
                     
         elif "youtube.com/embed" in url:
@@ -180,7 +180,7 @@ def generate_html(file_name, videos, pdfs, others):
     </header>
 
     <div id="video-player">
-        <video id="engineer-babu-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360"></video>
+        <video id="Stack_Sadhu_Player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360"></video>
     </div>
 
     <div class="search-bar">
@@ -208,7 +208,7 @@ def generate_html(file_name, videos, pdfs, others):
         <div class="other-list">{other_links}</div>
     </div>
 
-    <footer>Extracted By ⌯ FʀᴏɴᴛMᴀɴ | ×͜× |</footer>
+    <footer>Extracted By ⌯ StackSadhu </footer>
 
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <script>
