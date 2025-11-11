@@ -369,14 +369,27 @@ async def start(bot: Client, m: Message):
 
 
 def auth_check_filter(_, client, message):
+
     try:
-        # For channel messages
+
+        # Safely get bot username (avoid .lower() crash)
+
+        bot_username = getattr(getattr(client, "me", None), "username", None)
+
+        if not bot_username:
+
+            return False
+
         if message.chat.type == "channel":
-            return db.is_channel_authorized(message.chat.id, client.me.username)
-        # For private messages
+
+            return db.is_channel_authorized(message.chat.id, bot_username)
+
         else:
-            return db.is_user_authorized(message.from_user.id, client.me.username)
+
+            return db.is_user_authorized(message.from_user.id, bot_username)
+
     except Exception:
+
         return False
 
 auth_filter = filters.create(auth_check_filter)
