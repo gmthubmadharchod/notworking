@@ -858,7 +858,7 @@ async def txt_handler(bot: Client, m: Message):
                 url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
-               cmd = f'curl -L -A "Mozilla/5.0" -e "https://web.utkarshapp.com/" -o "{name}.pdf" "{url}"'
+               cmd = f'yt-dlp --add-header "referer:https://onedrive.live.com/" --add-header "user-agent:Mozilla/5.0" -o "{name}.pdf" "{url}"'
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
@@ -1241,7 +1241,7 @@ async def text_handler(bot: Client, m: Message):
                 url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
-               cmd = f'curl -L -A "Mozilla/5.0" -e "https://web.utkarshapp.com/" -o "{name}.pdf" "{url}"'
+               cmd = f'yt-dlp --add-header "referer:https://onedrive.live.com/" --add-header "user-agent:Mozilla/5.0" -o "{name}.pdf" "{url}"'
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
