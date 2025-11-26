@@ -796,13 +796,13 @@ async def txt_handler(bot: Client, m: Message):
 
                     base_url = base_url.split("?")[0]
 
-                    base_url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
+                    base_url = base_url.replace("https://static-db-v2.appx.co.in", "https://appx-content-v2.classx.co.in")
 
                     url = f"{base_url}*{key}"
                 else:
                     base_url = url.split("?")[0]
 
-                    url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
+                    url = base_url.replace("https://static-db-v2.appx.co.in", "https://appx-content-v2.classx.co.in")
 
             elif "https://static-db-v2.classx.co.in/" in url:
                 if "*" in url:
@@ -1198,7 +1198,22 @@ async def text_handler(bot: Client, m: Message):
                 else:
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db.classx.co.in", "https://appxcontent.kaxa.in")
+                    
+            elif "https://static-db-v2.appx.co.in/" in url:
+                if "*" in url:
+                    base_url, key = url.split("*", 1)
 
+                    base_url = base_url.split("?")[0]
+
+                    base_url = base_url.replace("https://static-db-v2.appx.co.in", "https://appx-content-v2.classx.co.in")
+
+                    url = f"{base_url}*{key}"
+                
+                else:
+                    base_url = url.split("?")[0]
+
+                    url = base_url.replace("https://static-db-v2.appx.co.in", "https://appx-content-v2.classx.co.in")
+                
 
             elif "https://static-db-v2.classx.co.in/" in url:
                 if "*" in url:
