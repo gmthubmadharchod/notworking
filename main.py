@@ -854,8 +854,8 @@ async def txt_handler(bot: Client, m: Message):
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
                 url = f"https://anonymouspwplayer-25261acd1521.herokuapp.com/pw?url={url}&token={raw_text4}"
 
-            if ".pdf*" in url:
-                url = f"https://dragoapi.vercel.app/pdf/{url}"
+        #    if ".pdf*" in url:
+        #        url = f"https://dragoapi.vercel.app/pdf/{url}"
             
             elif 'encrypted.m' in url:
                 appxkey = url.split('*')[1]
@@ -872,8 +872,8 @@ async def txt_handler(bot: Client, m: Message):
                 url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
-               print("PDF Utkarsh direct download:", url)
-               cmd = f'curl -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.1 Safari/537.36" -e "https://web.utkarshapp.com/" -H "accept: application/pdf" -H "sec-fetch-site: cross-site" --compressed -o "{name}.pdf" "{url}"'
+               proxy_url = f"https://39217846.utkarsh-proxy.pages.dev/?url={url}"
+               cmd = f'wget --no-check-certificate -O "{name}.pdf" "{proxy_url}"'
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
@@ -1253,8 +1253,8 @@ async def text_handler(bot: Client, m: Message):
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
                 url = f"https://anonymouspwplayer-25261acd1521.herokuapp.com/pw?url={url}&token={raw_text4}"
 
-            if ".pdf*" in url:
-                url = f"https://dragoapi.vercel.app/pdf/{url}"
+           # if ".pdf*" in url:
+           #    url = f"https://dragoapi.vercel.app/pdf/{url}"
             
             elif 'encrypted.m' in url:
                 appxkey = url.split('*')[1]
@@ -1271,8 +1271,8 @@ async def text_handler(bot: Client, m: Message):
                 url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
-               prox = f"https://39217846.utkarsh-proxy.pages.dev/?url={url}"
-               cmd = f'yt-dlp --no-check-certificate --add-header "referer:https://39217846.utkarsh-proxy.pages.dev/" --add-header "user-agent:Mozilla/5.0" -o "{name}.pdf" "{prox}"'
+               proxy_url = f"https://39217846.utkarsh-proxy.pages.dev/?url={url}"
+               cmd = f'wget --no-check-certificate -O "{name}.pdf" "{proxy_url}"'
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
