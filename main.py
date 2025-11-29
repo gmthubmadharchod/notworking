@@ -818,13 +818,13 @@ async def txt_handler(bot: Client, m: Message):
 
             elif "https://cpvod.testbook.com/" in url or "classplusapp.com/drm/" in url:
                 url = url.replace("https://cpvod.testbook.com/","https://media-cdn.classplusapp.com/drm/")
-                url = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=7553390269"
+                url = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
 
             elif "classplusapp" in url:
-                signed_api = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=7553390269"
+                signed_api = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
                 response = requests.get(signed_api, timeout=40)
                 url = response.text.strip()
                 url = response.json()['url']  
@@ -1227,7 +1227,7 @@ async def text_handler(bot: Client, m: Message):
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
 
             elif "classplusapp" in url:
-                signed_api = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=7553390269"
+                signed_api = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
                 response = requests.get(signed_api, timeout=20)
                 url = response.text.strip()
                 url = response.json()['url']  
