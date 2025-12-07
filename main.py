@@ -870,12 +870,16 @@ async def txt_handler(bot: Client, m: Message):
             else:
                 ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
            
-            if isinstance(url, str) and "jw-prod" in url and url.endswith(".mp4"):
-                url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
-                cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
+      #      if isinstance(url, str) and "jw-prod" in url and url.endswith(".mp4"):
+    #        url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
+     #           cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
+            elif "jw-prod" in url and url.endswith(".mp4"):
+               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}"
+     
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
-               proxy_url = f"https://39217846.utkarsh-proxy.pages.dev/?url={url}"
-               cmd = f'wget --no-check-certificate -O "{name}.pdf" "{proxy_url}"'
+               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/pdf?url={url}"
+               
+               
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
@@ -1271,12 +1275,16 @@ async def text_handler(bot: Client, m: Message):
             else:
                 ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
            
-            if isinstance(url, str) and "jw-prod" in url and url.endswith(".mp4"):
-                url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
-                cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
+       #     if isinstance(url, str) and "jw-prod" in url and url.endswith(".mp4"):
+        #        url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
+         #       cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
+            elif "pw-prod" in url and url.endswith(".mp4"):
+               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}"
+                
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
-               proxy_url = f"https://39217846.utkarsh-proxy.pages.dev/?url={url}"
-               cmd = f'wget --no-check-certificate -O "{name}.pdf" "{proxy_url}"'
+               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/pdf?url={url}"
+               
+               
             elif "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
