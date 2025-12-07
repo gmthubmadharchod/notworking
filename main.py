@@ -1228,7 +1228,7 @@ async def text_handler(bot: Client, m: Message):
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
 
-            elif "classplusapp" in url:
+            elif "classplusapp" in url or "classplus.co" in url and url.endswith(".m3u8"):
                 signed_api = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
                 response = requests.get(signed_api, timeout=20)
                 url = response.text.strip()
