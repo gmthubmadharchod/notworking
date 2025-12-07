@@ -873,7 +873,7 @@ async def txt_handler(bot: Client, m: Message):
       #      if isinstance(url, str) and "jw-prod" in url and url.endswith(".mp4"):
     #        url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
      #           cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
-            elif "jw-prod" in url and url.endswith(".mp4"):
+            if "jw-prod" in url and url.endswith(".mp4"):
                proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}"
      
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
@@ -1278,7 +1278,7 @@ async def text_handler(bot: Client, m: Message):
        #     if isinstance(url, str) and "jw-prod" in url and url.endswith(".mp4"):
         #        url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
          #       cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
-            elif "pw-prod" in url and url.endswith(".mp4"):
+            if "jw-prod" in url and url.endswith(".mp4"):
                proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}"
                 
             elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
