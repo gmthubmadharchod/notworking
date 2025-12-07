@@ -823,7 +823,7 @@ async def txt_handler(bot: Client, m: Message):
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
 
-            elif "classplusapp" in url:
+            elif "classplusapp" in url or "classplus.co" in url and url.endswith(".m3u8"):
                 signed_api = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
                 response = requests.get(signed_api, timeout=40)
                 url = response.text.strip()
