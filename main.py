@@ -876,10 +876,10 @@ async def txt_handler(bot: Client, m: Message):
     #        url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
      #           cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             if "jw-prod" in url and url.lower().endswith(".mp4"):
-               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}"
+               cmd = f'yt-dlp "https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}" -o "{name}.mp4"'
      
-            elif "utkarshapp.com" in url and url.lower().endswith(".pdf"):
-               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/pdf?url={url}"
+            if "utkarshapp.com" in url and url.lower().endswith(".pdf"):
+               cmd = f'yt-dlp "https://thumbs-treasures-lindsay-mai.trycloudflare.com/pdf?url={url}" -o "{name}.pdf"'
                
                
             elif "webvideos.classplusapp." in url:
@@ -1269,6 +1269,8 @@ async def text_handler(bot: Client, m: Message):
             elif 'encrypted.m' in url:
                 appxkey = url.split('*')[1]
                 url = url.split('*')[0]
+                
+            url = url.strip()    
 
             if "youtu" in url:
                 ytf = f"bv*[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[height<=?{raw_text2}]"
@@ -1281,10 +1283,10 @@ async def text_handler(bot: Client, m: Message):
         #        url = url.replace("https://apps-s3-jw-prod.utkarshapp.com","https://d1q5ugnejk3zoi.cloudfront.net/ut-production-jw")
          #       cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             if "jw-prod" in url and url.endswith(".mp4"):
-               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}"
+               cmd = f'yt-dlp "https://thumbs-treasures-lindsay-mai.trycloudflare.com/video?url={url}" -o "{name}.mp4"'
                 
-            elif isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
-               proxy_url = f"https://thumbs-treasures-lindsay-mai.trycloudflare.com/pdf?url={url}"
+            if isinstance(url, str) and "utkarshapp.com" in url and url.endswith(".pdf"):
+               cmd = f'yt-dlp "https://thumbs-treasures-lindsay-mai.trycloudflare.com/pdf?url={url}" -o "{name}.pdf"'
                
                
             elif "webvideos.classplusapp." in url:
