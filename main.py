@@ -818,14 +818,14 @@ async def txt_handler(bot: Client, m: Message):
 
             elif "https://cpvod.testbook.com/" in url or "classplusapp.com/drm/" in url:
                 url = url.replace("https://cpvod.testbook.com/","https://media-cdn.classplusapp.com/drm/")
-                url = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
+                url = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=8398342182"
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
 
             elif "classplusapp" in url or "classplus.co" in url and url.endswith(".m3u8"):
-                signed_api = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
-                response = requests.get(signed_api, timeout=40)
+                signed_api = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=8398342182"
+                response = requests.get(signed_api, timeout=90)
                 url = response.text.strip()
                 url = response.json()['url']  
                 
@@ -845,7 +845,7 @@ async def txt_handler(bot: Client, m: Message):
                 url   = response.json()['url']
 
             elif "childId" in url and "parentId" in url:
-                url = f"https://anonymouspwplayer-25261acd1521.herokuapp.com/pw?url={url}&token={raw_text4}"
+                url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
 
             if "edge.api.brightcove.com" in url:
                 bcov = f'bcov_auth={cwtoken}'
@@ -854,7 +854,7 @@ async def txt_handler(bot: Client, m: Message):
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
                 if "parentId=" not in url and "childId=" not in url:
                     url += "&parentId=680b7e5107c7dd6acc83968f&childId=680f549f8929377b0b504caa"
-                url = f"https://anonymouspwplayer-25261acd1521.herokuapp.com/pw?url={url}&token={raw_text4}"
+                url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
 
         #    if ".pdf*" in url:
         #        url = f"https://dragoapi.vercel.app/pdf/{url}"
@@ -1171,7 +1171,7 @@ async def text_handler(bot: Client, m: Message):
 
             elif "https://cpvod.testbook.com/" in url or "classplusapp.com/drm/" in url:
                 url = url.replace("https://cpvod.testbook.com/","https://media-cdn.classplusapp.com/drm/")
-                url = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@itsgolu_official&user_id=8398342182"
+                url = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=8398342182"
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
@@ -1241,8 +1241,8 @@ async def text_handler(bot: Client, m: Message):
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
 
             elif "classplusapp" in url or "classplus.co" in url and url.endswith(".m3u8"):
-                signed_api = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id=8398342182"
-                response = requests.get(signed_api, timeout=20)
+                signed_api = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=8398342182"
+                response = requests.get(signed_api, timeout=120)
                 url = response.text.strip()
                 url = response.json()['url']  
 
@@ -1262,12 +1262,12 @@ async def text_handler(bot: Client, m: Message):
                 url   = response.json()['url']
 
             elif "childId" in url and "parentId" in url:
-                    url = f"https://anonymouspwplayer-25261acd1521.herokuapp.com/pw?url={url}&token={raw_text4}"
+                    url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
                            
             elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
                 if "parentId=" not in url and "childId=" not in url:
                     url += "&parentId=680b7e5107c7dd6acc83968f&childId=680f549f8929377b0b504caa"
-                url = f"https://anonymouspwplayer-25261acd1521.herokuapp.com/pw?url={url}&token={raw_text4}"
+                url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
 
            # if ".pdf*" in url:
            #    url = f"https://dragoapi.vercel.app/pdf/{url}"
