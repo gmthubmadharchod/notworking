@@ -896,16 +896,16 @@ async def txt_handler(bot: Client, m: Message):
            #     url   = response.json()['url']
 
             elif "childId" in url and "parentId" in url:
-                url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
+                url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
 
             if "edge.api.brightcove.com" in url:
                 bcov = f'bcov_auth={cwtoken}'
                 url = url.split("bcov_auth")[0]+bcov
                            
-            elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
-                if "parentId=" not in url and "childId=" not in url:
-                    url += "&parentId=680b7e5107c7dd6acc83968f&childId=680f549f8929377b0b504caa"
-                url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
+          #  elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
+           #     if "parentId=" not in url and "childId=" not in url:
+            #        url += "&parentId=680b7e5107c7dd6acc83968f&childId=680f549f8929377b0b504caa"
+             #   url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
 
         #    if ".pdf*" in url:
         #        url = f"https://dragoapi.vercel.app/pdf/{url}"
@@ -1364,12 +1364,12 @@ async def text_handler(bot: Client, m: Message):
             #    url   = response.json()['url']
 
             elif "childId" in url and "parentId" in url:
-                    url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
+                    url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
                            
-            elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
-                if "parentId=" not in url and "childId=" not in url:
-                    url += "&parentId=680b7e5107c7dd6acc83968f&childId=680f549f8929377b0b504caa"
-                url = f"https://anonymouspwplayer.rarestudy.site/pw?url={url}&token={raw_text4}"
+           # elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
+             #   if "parentId=" not in url and "childId=" not in url:
+               #     url += "&parentId=680b7e5107c7dd6acc83968f&childId=680f549f8929377b0b504caa"
+               # url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
 
            # if ".pdf*" in url:
            #    url = f"https://dragoapi.vercel.app/pdf/{url}"
