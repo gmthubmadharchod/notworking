@@ -819,7 +819,7 @@ async def txt_handler(bot: Client, m: Message):
             
             elif any(x in url for x in ["https://cpvod.testbook.com/", "classplusapp.com/drm/", "media-cdn.classplusapp.com", "media-cdn-alisg.classplusapp.com", "media-cdn-a.classplusapp.com", "tencdn.classplusapp", "videos.classplusapp", "webvideos.classplusapp.com"]):
                 url_norm = url.replace("https://cpvod.testbook.com/", "https://media-cdn.classplusapp.com/drm/")
-                api_url_call = f"https://cp-api-v5.onrender.com/Saini_bots?url={url_norm}@Saini_bots&user_id=8053386100"
+                api_url_call = f"http://cp-api-new-g7ng.onrender.com/ITSMARCOOFFICIAL?url={url_norm}@ITSMARCOOFFICIAL&user_id=8398342182"
                 keys_string = ""
                 mpd = None
                 try:
