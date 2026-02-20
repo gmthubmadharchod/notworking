@@ -898,6 +898,20 @@ async def txt_handler(bot: Client, m: Message):
             elif "childId" in url and "parentId" in url:
                 url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
 
+            elif "selectionwayserver.hranker.com" in url and (url.lower().endswith(".pdf") or url.lower().endswith(".mp4")):
+                url = quote(url, safe=":/?=&")
+                out_ext = "pdf" if url.lower().endswith(".pdf") else "mp4"
+                out_file = f"{name}.{out_ext}"
+                cmd = [
+                    "wget",
+                    "--content-disposition",
+                    "--user-agent=okhttp/4.9.0",
+                    "--referer=https://selectionway.com",
+                    "-O",
+                    out_file,
+                    url
+                    ]
+
             if "edge.api.brightcove.com" in url:
                 bcov = f'bcov_auth={cwtoken}'
                 url = url.split("bcov_auth")[0]+bcov
@@ -1365,6 +1379,20 @@ async def text_handler(bot: Client, m: Message):
 
             elif "childId" in url and "parentId" in url:
                     url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
+
+            elif "selectionwayserver.hranker.com" in url and (url.lower().endswith(".pdf") or url.lower().endswith(".mp4")):
+                url = quote(url, safe=":/?=&")
+                out_ext = "pdf" if url.lower().endswith(".pdf") else "mp4"
+                out_file = f"{name}.{out_ext}"
+                cmd = [
+                    "wget",
+                    "--content-disposition",
+                    "--user-agent=okhttp/4.9.0",
+                    "--referer=https://selectionway.com",
+                    "-O",
+                    out_file,
+                    url
+                    ]
                            
            # elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
              #   if "parentId=" not in url and "childId=" not in url:
