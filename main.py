@@ -904,8 +904,12 @@ async def txt_handler(bot: Client, m: Message):
                 out_ext = "pdf" if url.lower().endswith(".pdf") else "mp4"
                 out_file = f"{name}.{out_ext}"
                 cmd = [
-                    "wget",
-                    "--content-disposition",
+                    "aria2c",
+                    "-x", "8",
+                    "-s", "8",
+                    "--file-allocation=none",
+                    "--summary-interval=0",
+                    "--auto-file-renaming=false",
                     "--user-agent=okhttp/4.9.0",
                     "--referer=https://selectionway.com",
                     "-O",
@@ -1387,8 +1391,12 @@ async def text_handler(bot: Client, m: Message):
                 out_ext = "pdf" if url.lower().endswith(".pdf") else "mp4"
                 out_file = f"{name}.{out_ext}"
                 cmd = [
-                    "wget",
-                    "--content-disposition",
+                    "aria2c",
+                    "-x", "8",
+                    "-s", "8",
+                    "--file-allocation=none",
+                    "--summary-interval=0",
+                    "--auto-file-renaming=false",
                     "--user-agent=okhttp/4.9.0",
                     "--referer=https://selectionway.com",
                     "-O",
