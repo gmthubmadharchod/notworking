@@ -899,7 +899,8 @@ async def txt_handler(bot: Client, m: Message):
                 url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
 
             elif "selectionwayserver.hranker.com" in url and (url.lower().endswith(".pdf") or url.lower().endswith(".mp4")):
-                url = quote(url, safe=":/?=&")
+                if " " in url:
+                    url = url.replace(" ", "%20")
                 out_ext = "pdf" if url.lower().endswith(".pdf") else "mp4"
                 out_file = f"{name}.{out_ext}"
                 cmd = [
@@ -1381,7 +1382,8 @@ async def text_handler(bot: Client, m: Message):
                     url = f"https://anonymouspwplayerr-c96de7802811.herokuapp.com/pw?url={url}&token={raw_text4}"
 
             elif "selectionwayserver.hranker.com" in url and (url.lower().endswith(".pdf") or url.lower().endswith(".mp4")):
-                url = quote(url, safe=":/?=&")
+                if " " in url:
+                    url = url.replace(" ", "%20")
                 out_ext = "pdf" if url.lower().endswith(".pdf") else "mp4"
                 out_file = f"{name}.{out_ext}"
                 cmd = [
