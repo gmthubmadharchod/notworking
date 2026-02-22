@@ -969,7 +969,16 @@ async def txt_handler(bot: Client, m: Message):
                     raise Exception("YouTube API failed")
 
                 selected_format = None
+                
                 for f in data["formats"]:
+                    if f["quality"] == quality:
+                        selected_format = f
+                        break
+
+                if not selected_format:
+                    selected_format = data["formats"][0]
+
+                video_url = selected_format["url"]
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
@@ -1458,6 +1467,18 @@ async def text_handler(bot: Client, m: Message):
 
                 if not data.get("status"):
                     raise Exception("YouTube API failed")
+
+                selected_format = None
+                
+                for f in data["formats"]:
+                    if f["quality"] == quality:
+                        selected_format = f
+                        break
+
+                if not selected_format:
+                    selected_format = data["formats"][0]
+
+                video_url = selected_format["url"]
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
