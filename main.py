@@ -982,15 +982,12 @@ async def txt_handler(bot: Client, m: Message):
                 out_file = f"{name}.mp4"
 
                 cmd = [
-                    "aria2c",
-                    "-x", "8",
-                    "-s", "8",
-                    "--connect-timeout=15",
-                    "--timeout=30",
-                    "--max-tries=3",
-                    "-o",
-                    out_file,
-                    video_url
+                    f'aria2c -x 8 -s 8 '
+                    f'--connect-timeout=15 '
+                    f'--timeout=30 '
+                    f'--max-tries=3 '
+                    f'-o "{out_file}" '
+                    f'"{video_url}"'
                 ]
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
@@ -1495,15 +1492,12 @@ async def text_handler(bot: Client, m: Message):
                 out_file = f"{name}.mp4"
 
                 cmd = [
-                    "aria2c",
-                    "-x", "8",
-                    "-s", "8",
-                    "--connect-timeout=15",
-                    "--timeout=30",
-                    "--max-tries=3",
-                    "-o",
-                    out_file,
-                    video_url
+                    f'aria2c -x 8 -s 8 '
+                    f'--connect-timeout=15 '
+                    f'--timeout=30 '
+                    f'--max-tries=3 '
+                    f'-o "{out_file}" '
+                    f'"{video_url}"'
                 ]
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
