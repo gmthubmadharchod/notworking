@@ -979,6 +979,19 @@ async def txt_handler(bot: Client, m: Message):
                     selected_format = data["formats"][0]
 
                 video_url = selected_format["url"]
+                out_file = f"{name}.mp4"
+
+                cmd = [
+                    "aria2c",
+                    "-x", "8",
+                    "-s", "8",
+                    "--connect-timeout=15",
+                    "--timeout=30",
+                    "--max-tries=3",
+                    "-o",
+                    out_file,
+                    video_url
+                ]
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
@@ -1479,6 +1492,19 @@ async def text_handler(bot: Client, m: Message):
                     selected_format = data["formats"][0]
 
                 video_url = selected_format["url"]
+                out_file = f"{name}.mp4"
+
+                cmd = [
+                    "aria2c",
+                    "-x", "8",
+                    "-s", "8",
+                    "--connect-timeout=15",
+                    "--timeout=30",
+                    "--max-tries=3",
+                    "-o",
+                    out_file,
+                    video_url
+                ]
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
