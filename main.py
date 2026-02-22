@@ -961,7 +961,15 @@ async def txt_handler(bot: Client, m: Message):
             if "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
-                cmd = f'yt-dlp --cookies youtube_cookies.txt -f "{ytf}" "{url}" -o "{name}".mp4'
+                api_url = f"https://alldownload-api.vercel.app/api/download?url={url}"
+                response = requests.get(api_url)
+                data = response.json()
+
+                if not data.get("status"):
+                    raise Exception("YouTube API failed")
+
+                selected_format = None
+                for f in data["formats"]:
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
@@ -1444,7 +1452,12 @@ async def text_handler(bot: Client, m: Message):
             if "webvideos.classplusapp." in url:
                cmd = f'yt-dlp --add-header "referer:https://web.classplusapp.com/" --add-header "x-cdn-tag:empty" -f "{ytf}" "{url}" -o "{name}.mp4"'
             elif "youtube.com" in url or "youtu.be" in url:
-                cmd = f'yt-dlp --cookies youtube_cookies.txt -f "{ytf}" "{url}" -o "{name}".mp4'
+                api_url = f"https://alldownload-api.vercel.app/api/download?url={url}"
+                response = requests.get(api_url)
+                data = response.json()
+
+                if not data.get("status"):
+                    raise Exception("YouTube API failed")
             else:
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
